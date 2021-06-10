@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import FileUpload from "./components/FileUpload";
+import Predict from "./components/Predict";
+import React, { useState } from "react";
 
 function App() {
+  const [cat, setCat] = useState(false);
+  const [dog, setDog] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="d-flex justify-content-around flex-row container mt-4">
+      <div className="d-flex justify-content-center flex-column mt-4">
+        <FileUpload cat={cat} setCat={setCat} dog={dog} setDog={setDog} />
+      </div>
+      <div className="d-flex justify-content-center flex-column mt-4">
+        <Predict cat={cat} dog={dog} />
+      </div>
     </div>
   );
 }
